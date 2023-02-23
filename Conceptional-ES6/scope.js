@@ -1,14 +1,15 @@
 // global scope
+// local scope
 
 // block scope
 
 
 
 
-{
-    // var roll = 12
-    // console.log(roll)
-}
+// {
+//     // var roll = 12
+//     // console.log(roll)
+// }
 // console.log(roll)
 
 // function add(){
@@ -17,13 +18,13 @@
 
 // console.log(a)
 
-let Name = 'mehedy'
-const isMale = true;
+// let Name = 'mehedy'
+// const isMale = true;
 
-{
-     const isMale = false;
-     console.log(isMale)
-}
+// {
+//      const isMale = false;
+//      console.log(isMale)
+// }
 
 
 

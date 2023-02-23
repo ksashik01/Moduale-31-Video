@@ -1,3 +1,4 @@
+// ----------------------Object Acess --------
 const Person = {
     name: 'abul',
     age: 23,
@@ -15,13 +16,23 @@ const Person = {
     }
 }
 
-console.log(Person.education.subjects[1].mark)
 
 
-// const age = Person.age;
-// const a = Person['name']
-// const property = 'name'
+// অবজেক্ট এর propertiy গুলো access পাওয়ার উপায় 
+// const anyValue= Person.age;
+// console.log (anyValue)
 
-// const aa = Person[property]
+// // আরও একটি অবজেক্ট এর propertiy গুলো access পাওয়ার উপায় 
+// const anyValues= Person ['contact'];
+// console.log (anyValues)
 
-// console.log(aa)
+// // আরও একটি অবজেক্ট এর propertiy গুলো access পাওয়ার উপায় 
+// const propertity = 'age';
+// const anyPropertiy= Person [propertity]
+// console.log (anyPropertiy);
+
+// // Object এর ভিতরের Object Access করার পদ্ধতি
+// console.log (Person.education);
+// console.log (Person.education.subjects);
+// console.log (Person.education.subjects[1]);
+// console.log (Person.education.subjects[1].mark);
