@@ -315,11 +315,160 @@ const petOwner = {
 // find :যখন find ব্যবহার করবেন তখন single একটা ভ্যালু রিটার্ন করবে। 
 // filter :যখন filter ব্যবহার করবেন তখন Array return করবে
 
-const numbers= [12,32,25,75,13,54,97,25,50];
-const names= ['abul', 'babul', 'mehedi', 'jakariay']
+// const numbers= [12,32,25,75,13,54,97,25,50];
+// const names= ['abul', 'babul', 'mehedi', 'jakariay']
 
-const x= numbers.find((n) => n >=50);
-console.log (x)
+// const x= numbers.find((n) => n >=50);
+// console.log (x)
 
-const y = numbers.filter ((n)=> n>50);
-console.log (y)
+// const y = numbers.filter ((n)=> n>50);
+// console.log (y)
+
+
+// const Persons = [
+//   { id: 'ID01', name: "abul vai", age: 23 },
+//   { id: 'ID02', name: "babul vai", age: 43 },
+//   { id: 'ID03', name: "habul vai", age: 54 },
+//   { id: 'ID04', name: "jabul vai", age: 29 }
+// ]
+
+// const info = {};
+
+
+
+// Persons.map (p =>{
+ 
+//  const id =p.id;
+//   const value = p.name
+//   info [id] = value;
+ 
+
+
+// } )
+
+// console.log (info.ID01)
+
+// const numbers= [2,6,8,9]
+// // let sum =0;
+// // for (let n of numbers){
+// //   sum= n +sum;
+
+// // }
+// // console.log (sum);
+
+// const total = numbers.reduce ((previous,current) => {
+//  return previous+current
+
+// } ,0)
+// const multi = numbers.reduce ( (prev, pre) => {
+// return prev * pre
+
+// }  ,1 )
+// console.log ()
+// console.log (multi)
+
+// class student {
+//   name = 'mahedi';
+//   roll =12
+
+// }
+// // new ekta keyword
+
+// const student1= new student ();
+// console.log (student1);
+
+
+// constructor একটা keyword আর ২তা parameter নিলাম
+// this ekta keyword-------
+// class এর ভিতরে যখন একটা function কে রাখবেন তখন সেটাকে methood বলে 
+
+// class student {
+//   name;
+//   roll;
+
+// constructor (name,roll){
+//   this.name =name;
+//   this.roll=roll
+// }
+
+// showDeatils (){
+
+// console.log (`my name ${this.name}. my age ${this.roll}`)
+
+
+// }
+
+// }
+
+// const student1 = new student ('mehedi', 12);
+// // const student2 = new student ('ashik',52 )
+// student1.showDeatils()
+// const student2= new student ('ashik', 56);
+// student2.showDeatils();
+
+
+// student2.showDeatils()
+
+
+
+class person {
+name;
+age;
+constructor (name,age){
+  this.name=name;
+  this.age =age ;
+}
+
+showName (){
+
+  console.log (`my name is ${this.name}`)
+}
+
+}
+
+class studentid extends person {
+
+subject;
+roll;
+constructor (name,age,subject,roll){
+ 
+
+super (name,age)
+this.subject=subject;
+this.roll = roll;
+
+}
+showId (){
+  console.log (this.name,this.age,this.subject,this.roll)
+}
+
+
+}
+
+
+const stu= new studentid ("tahmina", 20,"h.s.c", "lectural");
+stu.showId ()
+
+
+
+class teacher extends person{
+
+faculty;
+designation;
+constructor (name,age,faculty,designation){
+
+super (name,age)
+this.faculty=faculty;
+this.designation =designation;
+
+}
+teacherId (){
+  console.log (this.name,this.age,this.faculty,this.designation)
+
+
+}
+
+}
+
+const tea= new teacher ("bayzid", 25,'cse',23232);
+tea.teacherId()
