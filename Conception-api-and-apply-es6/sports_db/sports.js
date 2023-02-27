@@ -95,7 +95,10 @@
 
 const serachAllData = () =>{
 const inputElement= document.getElementById('search-value');
-const inputValue= inputElement.value;
+  const inputValue = inputElement.value;
+  inputElement.value =""
+
+
 // console.log (totalInputValue)
 const url = `https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?p=${inputValue}`;
 console.log (url);
@@ -104,28 +107,29 @@ fetch (url)
 .then ((res) => res.json())
 .then ((data) => showPlayerData (data.player))
 
-
-
 }
 
 const showPlayerData =(players) => {
-  
-  const container =document.getElementById ("player-info")
 
   
-  
   players.forEach((player) => {
-    console.log (player.strPlayer);
+    console.log(player.strPlayer);
+    
+
+const container= document.getElementById ("player-info")
     const div =document.createElement ("div");
-div.classList.add ("col")
-div.innerHTML=`
+    div.classList.add ("col")
+    div.innerHTML=`
 
 
     <div class="card">
       <img src="${player.strThumb}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">${player.strPlayer}</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text">Natonaltity:${player.strNationality}</p>
+        <button onclick ="singlePlayer('${player.idPlayer}')" type="button" class="btn btn-danger">Details</button>
+        <button type="button" class="btn btn-warning">Delete</button>
+
      
     </div>
   </div>
@@ -142,9 +146,66 @@ div.innerHTML=`
 }
 
 
+const singlePlayer = (id) => {
+
+  console.log(id);
+  const url = `https://www.thesportsdb.com/api/v1/json/3/lookupplayer.php?id=${id}
+`;
+  console.log (url)
+
+  fetch(url)
+    .then((res) => res.json())
+  .then((data)  => showSinglePlayer(data.players[0]))
+
+
+}
+
+const showSinglePlayer = (data) => {
+  
+  console.log(data)
+  const {strThumb,strDescriptionEN} = data;
+
+  // if (strGender === "Male") {
+  //   const element = document.getElementById("male");
+
+  //   element.classList.remove("d-none");
+  // }
+  
+  // else {
+    
+  //   const element = document.getElementById("female");
+  //   element.classList.remove ("d-none")
+
+  // }
+
+
+  const container = document.getElementById("single-player-details");
+  const div = document.createElement("div");
+  div.innerHTML = `
+  
+ <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img  src="${strThumb}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">${strDescriptionEN.slice (0, 200) + "...."}</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  `
+container.appendChild (div)
+
+
+}
 
 
 
 
-
-// serachAllData()
+ 
+serachAllData()
