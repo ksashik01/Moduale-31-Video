@@ -24,10 +24,15 @@
           <div id="btn-search" class="btn btn-outline-success" type="submit">Search</div>
         </form>
       </div>
+      <section id="loader" class="d-none"> 
+      
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
 
-
-
-
+  </section>
 </section>
 
 
@@ -35,15 +40,33 @@
 
 <section class="container">
     <div  id="phone-container" class="row row-cols-1 row-cols-md-3 g-4 p-5">
-        
+
+
+
+
+
 
     </div>
+
+
+
+
+
+
+
+
 <!-- Add Waring message -->
     <div id="no-found-message" class="d-none">
         <h3 class="text-warning">No Phone Found</h3>
-
-
     </div>
+
+    <!-- show all ক্লিক করলে যেন ইমেজ load হয়  -->
+<div id="show-all" class="text-center d-none">
+
+  <button id="show-all-button" type="button" class="btn btn-primary">See All</button>
+
+</div>
+
      
 
     </section>
