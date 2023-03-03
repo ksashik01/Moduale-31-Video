@@ -60,10 +60,12 @@ console.log (element)
             <div class="card-body">
               <h5 class="card-title">${element.phone_name}</h5>
               <p class="card-text">Thsi for my country hello sumit</p>
-              <button onclick="loadPhoneDetails('${element.slug}')" class="btn btn-primary"> Deatils </button>
+              <button onclick="loadPhoneDetails('${element.slug}')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#phoneDetailMdal
+              "> Deatils </button>
 
             </div>
           </div>
+
     
     ` ;
     phonesContainer.appendChild(phoneDiv)
@@ -75,8 +77,6 @@ console.log (element)
 toggleSpinner (false)
 
 }
-
-
 
 const processSearch = (dataLimit) =>{
 
@@ -90,13 +90,10 @@ const processSearch = (dataLimit) =>{
 }
 
 
-
-
 document.getElementById('btn-search').addEventListener ('click', function(){
   processSearch(10);
 
 })
-
 
 document.getElementById('search-field').addEventListener('keypress', function (e) {
   if (e.key === 'Enter') {
@@ -152,7 +149,28 @@ const loadPhoneDetails = async id =>{
 const url =`https://openapi.programming-hero.com/api/phone/${id}`;
 const res = await fetch (url);
 const data =await res.json ();
-console.log (data)
+phoneDetailMdal (data.data)
+
+
+}
+
+const phoneDetailMdal = phone =>{
+console.log (phone);
+const modalTitle = document.getElementById ('phoneDetailMdalLabel');
+modalTitle.innerText=phone.name;
+const phoneDeatils = document.getElementById ('phone-details');
+phoneDeatils.innerHTML=`
+<p>Relate Date:${phone.releaseDate ? phone.releaseDate : 'no relase date found'}</p>
+
+<img src="${phone.image? phone.image : 'no image found'}" alt="">
+
+`
+
+
+
+
+
+
 
 
 }
@@ -166,7 +184,5 @@ console.log (data)
 
 
 
-
-
-loadPhones()
+loadPhones(phone)
 
